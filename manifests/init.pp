@@ -20,10 +20,7 @@ class enable_jetty {
   }
 
   file { '/etc/default/jetty':
-    source  => [
-      'puppet:///files/default-jetty',
-      '/tmp/vagrant-puppet/files/default-jetty',
-    ],
+    source  => 'puppet:///modules/enable_jetty/default-jetty',
     require => Package['jetty'],
     owner   => 'root',
     group   => 'root',
@@ -32,10 +29,7 @@ class enable_jetty {
   File['/etc/default/jetty'] ~> Service['jetty']
 
   file { '/etc/jetty/start.config':
-    source  => [
-      'puppet:///files/jetty-start-config',
-      '/tmp/vagrant-puppet/files/jetty-start-config',
-    ],
+    source  => 'puppet:///modules/enable_jetty/jetty-start-config',
     require => Package['jetty'],
     owner   => 'root',
     group   => 'root',
