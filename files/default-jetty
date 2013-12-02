@@ -1,0 +1,11 @@
+# Defaults for jetty see /etc/init.d/jetty for more
+
+# allow Jetty to start
+NO_START=0
+
+# Listen to connections from this network host
+# Use 0.0.0.0 as host to accept all connections.
+JETTY_HOST=127.0.0.1
+
+# Home of Java installation.
+JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386
