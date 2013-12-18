@@ -1,4 +1,4 @@
-class enable_jetty {
+class enable_jetty ( $xmx = 256 ) {
 
   package { 'jetty':
     ensure  => installed,
@@ -20,7 +20,7 @@ class enable_jetty {
   }
 
   file { '/etc/default/jetty':
-    source  => 'puppet:///modules/enable_jetty/default-jetty',
+    content => template('enable_jetty/default-jetty.erb'),
     require => Package['jetty'],
     owner   => 'root',
     group   => 'root',
