@@ -23,5 +23,3 @@ $(jetty.home)/etc/jetty.xml                      nargs == 0
 
 # Add a resources directory if it is there
 $(jetty.home)/resources/
-
-env=production
