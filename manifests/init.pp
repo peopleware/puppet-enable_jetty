@@ -1,6 +1,7 @@
 class enable_jetty ( $xmx = 256 ) {
 
   require dependencies
+  require disablejetty6
 
   service { 'jetty8':
     ensure  => running,
@@ -95,6 +96,38 @@ class dependencies {
     ensure => 'link',
     target => '../../../java/tomcat-juli.jar',
     require => File['/usr/share/jetty8/lib/autostore'],
+  }
+
+}
+
+class disablejetty6 {
+
+  package { 'jetty':
+    ensure  => purged,
+  }
+
+  package { 'libjetty-java':
+    ensure  => absent,
+  }
+
+  package { 'libjetty-extra':
+    ensure  => absent,
+  }
+
+  package { 'libjetty-extra-java':
+    ensure  => absent,
+  }
+
+  file { '/etc/default/jetty':
+    ensure => absent,
+  }
+
+  file { '/etc/jetty/start.config':
+    ensure => absent,
+  }
+
+  file { '/var/lib/jetty/webapps':
+    ensure => absent,
   }
 
 }
