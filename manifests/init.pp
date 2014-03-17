@@ -103,7 +103,7 @@ class dependencies {
 class disablejetty6 {
 
   package { 'jetty':
-    ensure  => purged,
+    ensure  => absent,
   }
 
   package { 'libjetty-java':
