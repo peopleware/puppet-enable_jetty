@@ -48,4 +48,53 @@ class dependencies {
     ensure => installed,
   }
 
+  file { '/usr/share/jetty8/lib/autostore':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    require => Package['jetty8'],
+  }
+
+  file { '/usr/share/jetty8/lib/autostore/ecj.jar':
+    ensure => 'link',
+    target => '../../../java/ecj.jar',
+    require => File['/usr/share/jetty8/lib/autostore'],
+  }
+
+  file { '/usr/share/jetty8/lib/autostore/jasper-el.jar':
+    ensure => 'link',
+    target => '../../../java/jasper-el.jar',
+    require => File['/usr/share/jetty8/lib/autostore'],
+  }
+
+  file { '/usr/share/jetty8/lib/autostore/jasper.jar':
+    ensure => 'link',
+    target => '../../../java/jasper.jar',
+    require => File['/usr/share/jetty8/lib/autostore'],
+  }
+
+  file { '/usr/share/jetty8/lib/autostore/jstl1.1.jar':
+    ensure => 'link',
+    target => '../../../java/jstl1.1.jar',
+    require => File['/usr/share/jetty8/lib/autostore'],
+  }
+
+  file { '/usr/share/jetty8/lib/autostore/tomcat-el-api-2.2.jar':
+    ensure => 'link',
+    target => '../../../java/tomcat-el-api-2.2.jar',
+    require => File['/usr/share/jetty8/lib/autostore'],
+  }
+
+  file { '/usr/share/jetty8/lib/autostore/tomcat-jsp-api-2.2.jar':
+    ensure => 'link',
+    target => '../../../java/tomcat-jsp-api-2.2.jar',
+    require => File['/usr/share/jetty8/lib/autostore'],
+  }
+
+  file { '/usr/share/jetty8/lib/autostore/tomcat-juli.jar':
+    ensure => 'link',
+    target => '../../../java/tomcat-juli.jar',
+    require => File['/usr/share/jetty8/lib/autostore'],
+  }
+
 }
