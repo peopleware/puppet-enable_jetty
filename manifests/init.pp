@@ -26,4 +26,20 @@ class enable_jetty ( $xmx = 256 ) {
     ensure => installed,
   }
 
+  package { 'libtomcat6-java':
+    ensure => installed,
+  }
+
+  package { 'libecj-java':
+    ensure => installed,
+  }
+
+  package { 'libjstl1.1-java':
+    ensure => installed,
+  }
+
+  package { 'libservlet3.0-java':
+    ensure => installed,
+  }
+
 }
