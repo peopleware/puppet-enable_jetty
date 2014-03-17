@@ -11,3 +11,5 @@ JETTY_HOST=127.0.0.1
 JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386
 
 JAVA_OPTIONS="-Xmx<%= scope['enable_jetty::xmx'] %>m -Djava.awt.headless=true -Djava.library.path=/usr/lib -Denv=production"
+
+JETTY_ARGS="OPTIONS=default,autostore"
