@@ -1,4 +1,4 @@
-# Defaults for jetty see /etc/init.d/jetty for more
+# Defaults for jetty see /etc/init.d/jetty8 for more
 
 # allow Jetty to start
 NO_START=0
@@ -10,4 +10,6 @@ JETTY_HOST=127.0.0.1
 # Home of Java installation.
 JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386
 
-JAVA_OPTIONS="-Xmx<%= scope['enable_jetty::xmx'] %>m -Djava.awt.headless=true -Djava.library.path=/usr/lib"
+JAVA_OPTIONS="-Xmx<%= scope['enable_jetty::xmx'] %>m -Djava.awt.headless=true -Djava.library.path=/usr/lib -Denv=production"
+
+JETTY_ARGS="OPTIONS=default,autostore"
