@@ -1,8 +1,6 @@
 class enable_jetty ( $xmx = 256 ) {
 
-  package { 'jetty8':
-    ensure  => installed,
-  }
+  require dependencies
 
   service { 'jetty8':
     ensure  => running,
@@ -21,6 +19,14 @@ class enable_jetty ( $xmx = 256 ) {
   }
 
   File['/etc/default/jetty8'] ~> Service['jetty8']
+
+}
+
+class dependencies {
+
+  package { 'jetty8':
+    ensure  => installed,
+  }
 
   package { 'openjdk-7-jdk':
     ensure => installed,
