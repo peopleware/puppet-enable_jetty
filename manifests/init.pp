@@ -126,8 +126,4 @@ class disablejetty6 {
     ensure => absent,
   }
 
-  file { '/var/lib/jetty/webapps':
-    ensure => absent,
-  }
-
 }
