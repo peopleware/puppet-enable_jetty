@@ -2,6 +2,7 @@ class enable_jetty ( $xmx = 256 ) {
 
   require dependencies
   require disablejetty6
+  require disablejava6
 
   service { 'jetty8':
     ensure  => running,
@@ -126,4 +127,11 @@ class disablejetty6 {
     ensure => absent,
   }
 
+}
+
+class disablejava6 {
+
+  package { 'openjdk-6-jre-lib':
+    ensure  => absent,
+  }
 }
