@@ -30,10 +30,6 @@ class dependencies {
     ensure  => installed,
   }
 
-  package { 'openjdk-7-jdk':
-    ensure => installed,
-  }
-
   package { 'libtomcat6-java':
     ensure => installed,
   }
