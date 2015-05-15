@@ -10,7 +10,19 @@ class enable_jetty ( $xmx = 256, $javahome = "/usr/lib/jvm/java-7-openjdk-${arch
     require => [
       Package['jetty8'],
       File['/etc/default/jetty8'],
+      Exec['check_java'],
+      Exec['check_javac'],
     ]
+  }
+
+  exec {'check_java':
+    command => '/bin/false',
+    unless => '/usr/bin/test -e /usr/bin/java',
+  }
+
+  exec {'check_javac':
+    command => '/bin/false',
+    unless => '/usr/bin/test -e /usr/bin/javac',
   }
 
   file { '/etc/default/jetty8':
