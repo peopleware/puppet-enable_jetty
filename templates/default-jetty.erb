@@ -8,7 +8,7 @@ NO_START=0
 JETTY_HOST=127.0.0.1
 
 # Home of Java installation.
-JAVA_HOME=/usr/lib/jvm/java-7-openjdk-<%= scope['architecture'] %>
+JAVA_HOME=<%= scope['javahome'] %>
 
 JAVA_OPTIONS="-Xmx<%= scope['enable_jetty::xmx'] %>m -Djava.awt.headless=true -Djava.library.path=/usr/lib -Denv=production"
 

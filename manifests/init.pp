@@ -1,4 +1,4 @@
-class enable_jetty ( $xmx = 256 ) {
+class enable_jetty ( $xmx = 256, $javahome = "/usr/lib/jvm/java-7-openjdk-${architecture}" ) {
 
   require dependencies
   require disablejetty6
