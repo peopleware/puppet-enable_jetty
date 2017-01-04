@@ -1,6 +1,7 @@
 class enable_jetty ( $xmx = 256, $javahome ) {
 
   require dependencies
+  require cleanupsymlinks
   require disablejetty6
   require disablejava6
 
@@ -42,7 +43,7 @@ class dependencies {
     ensure  => installed,
   }
 
-  package { 'libtomcat6-java':
+  package { 'libtomcat7-java':
     ensure => installed,
   }
 
@@ -74,20 +75,20 @@ class dependencies {
     ],
   }
 
-  file { '/usr/share/jetty8/lib/autostore/jasper-el.jar':
+  file { '/usr/share/jetty8/lib/autostore/tomcat-jasper-el.jar':
     ensure => 'link',
-    target => '../../../java/jasper-el.jar',
+    target => '../../../java/tomcat-jasper-el.jar',
     require => [
-      Package['libtomcat6-java'],
+      Package['libtomcat7-java'],
       File['/usr/share/jetty8/lib/autostore'],
     ],
   }
 
-  file { '/usr/share/jetty8/lib/autostore/jasper.jar':
+  file { '/usr/share/jetty8/lib/autostore/tomcat-jasper.jar':
     ensure => 'link',
     target => '../../../java/jasper.jar',
     require => [
-      Package['libtomcat6-java'],
+      Package['libtomcat7-java'],
       File['/usr/share/jetty8/lib/autostore'],
     ],
   }
@@ -123,9 +124,21 @@ class dependencies {
     ensure => 'link',
     target => '../../../java/tomcat-juli.jar',
     require => [
-      Package['libtomcat6-java'],
+      Package['libtomcat7-java'],
       File['/usr/share/jetty8/lib/autostore'],
     ],
+  }
+
+}
+
+class cleanupsymlinks {
+
+  file { '/usr/share/jetty8/lib/autostore/jasper.jar':
+    ensure => 'absent',
+  }
+
+  file { '/usr/share/jetty8/lib/autostore/jasper-el.jar':
+    ensure => 'absent',
   }
 
 }
