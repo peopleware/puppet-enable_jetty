@@ -73,6 +73,7 @@ class dependencies {
       Package['libecj-java'],
       File['/usr/share/jetty8/lib/autostore'],
     ],
+    notify => Service['jetty8'],
   }
 
   file { '/usr/share/jetty8/lib/autostore/tomcat-jasper-el.jar':
@@ -82,6 +83,7 @@ class dependencies {
       Package['libtomcat7-java'],
       File['/usr/share/jetty8/lib/autostore'],
     ],
+    notify => Service['jetty8'],
   }
 
   file { '/usr/share/jetty8/lib/autostore/tomcat-jasper.jar':
@@ -91,6 +93,7 @@ class dependencies {
       Package['libtomcat7-java'],
       File['/usr/share/jetty8/lib/autostore'],
     ],
+    notify => Service['jetty8'],
   }
 
   file { '/usr/share/jetty8/lib/autostore/jstl1.1.jar':
@@ -100,6 +103,7 @@ class dependencies {
       Package['libjstl1.1-java'],
       File['/usr/share/jetty8/lib/autostore'],
     ],
+    notify => Service['jetty8'],
   }
 
   file { '/usr/share/jetty8/lib/autostore/tomcat-el-api-2.2.jar':
@@ -109,6 +113,7 @@ class dependencies {
       Package['libservlet3.0-java'],
       File['/usr/share/jetty8/lib/autostore'],
     ],
+    notify => Service['jetty8'],
   }
 
   file { '/usr/share/jetty8/lib/autostore/tomcat-jsp-api-2.2.jar':
@@ -118,6 +123,7 @@ class dependencies {
       Package['libservlet3.0-java'],
       File['/usr/share/jetty8/lib/autostore'],
     ],
+    notify => Service['jetty8'],
   }
 
   file { '/usr/share/jetty8/lib/autostore/tomcat-juli.jar':
@@ -127,6 +133,7 @@ class dependencies {
       Package['libtomcat7-java'],
       File['/usr/share/jetty8/lib/autostore'],
     ],
+    notify => Service['jetty8'],
   }
 
 }
@@ -135,10 +142,12 @@ class cleanupsymlinks {
 
   file { '/usr/share/jetty8/lib/autostore/jasper.jar':
     ensure => 'absent',
+    notify => Service['jetty8'],
   }
 
   file { '/usr/share/jetty8/lib/autostore/jasper-el.jar':
     ensure => 'absent',
+    notify => Service['jetty8'],
   }
 
 }
