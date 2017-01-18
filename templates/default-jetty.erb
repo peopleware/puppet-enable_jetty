@@ -10,10 +10,6 @@ JETTY_HOST=127.0.0.1
 # Home of Java installation.
 JAVA_HOME=<%= scope['javahome'] %>
 
-JAVA_OPTIONS="-Xmx<%= scope['enable_jetty::xmx'] %>m -Djava.awt.headless=true -Djava.library.path=/usr/lib -Denv=production"
+JAVA_OPTIONS="-Xmx<%= scope['enable_jetty::xmx'] %>m -Djava.awt.headless=true -Djava.library.path=/usr/lib -Denv=production <% @env.each do |val| -%> -D<%= val %><% end -%>"
 
 JETTY_ARGS="OPTIONS=default,autostore"
-
-<% @env.each do |val| -%>
-env <%= val %>
-<% end -%>
