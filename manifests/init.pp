@@ -1,4 +1,4 @@
-class enable_jetty ( $xmx = 256, $javahome ) {
+class enable_jetty ( $xmx = 256, $javahome, $env = [] ) {
 
   require dependencies
   require cleanupsymlinks

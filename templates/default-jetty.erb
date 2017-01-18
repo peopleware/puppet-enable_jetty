@@ -13,3 +13,7 @@ JAVA_HOME=<%= scope['javahome'] %>
 JAVA_OPTIONS="-Xmx<%= scope['enable_jetty::xmx'] %>m -Djava.awt.headless=true -Djava.library.path=/usr/lib -Denv=production"
 
 JETTY_ARGS="OPTIONS=default,autostore"
+
+<% @env.each do |val| -%>
+<%= val %>
+<% end -%>
