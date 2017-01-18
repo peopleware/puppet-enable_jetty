@@ -15,5 +15,5 @@ JAVA_OPTIONS="-Xmx<%= scope['enable_jetty::xmx'] %>m -Djava.awt.headless=true -D
 JETTY_ARGS="OPTIONS=default,autostore"
 
 <% @env.each do |val| -%>
-<%= val %>
+env <%= val %>
 <% end -%>
